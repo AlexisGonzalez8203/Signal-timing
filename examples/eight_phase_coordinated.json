@@ -1,0 +1,123 @@
+{
+  "name": "Main St & Oak Ave -- AM Peak",
+  "cycle_length_s": 120.0,
+  "offset_s": 45.0,
+  "coordinated_phases": [2, 6],
+  "rings": [[1, 2, 3, 4], [5, 6, 7, 8]],
+  "barrier_groups": [[1, 2, 5, 6], [3, 4, 7, 8]],
+  "metadata": {
+    "agency": "Example DOT",
+    "intersection_id": "0142",
+    "notes": "Standard eight-phase dual ring, main street coordinated."
+  },
+  "phases": [
+    {
+      "number": 1,
+      "name": "Main St SB left",
+      "protected_left": true,
+      "min_green_s": 5.0,
+      "max_green_s": 20.0,
+      "yellow_s": 3.0,
+      "red_clearance_s": 2.2,
+      "split_s": 15.0,
+      "approach": {"speed_mph": 25.0, "clearance_distance_ft": 60.0}
+    },
+    {
+      "number": 2,
+      "name": "Main St NB through",
+      "min_green_s": 15.0,
+      "max_green_s": 60.0,
+      "yellow_s": 4.5,
+      "red_clearance_s": 1.5,
+      "split_s": 55.0,
+      "walk_s": 7.0,
+      "ped_change_s": 14.0,
+      "approach": {
+        "speed_mph": 45.0,
+        "clearance_distance_ft": 60.0,
+        "crossing_distance_ft": 48.0
+      }
+    },
+    {
+      "number": 3,
+      "name": "Oak Ave WB left",
+      "protected_left": true,
+      "min_green_s": 5.0,
+      "max_green_s": 20.0,
+      "yellow_s": 3.0,
+      "red_clearance_s": 2.2,
+      "split_s": 15.0,
+      "approach": {"speed_mph": 25.0, "clearance_distance_ft": 60.0}
+    },
+    {
+      "number": 4,
+      "name": "Oak Ave EB through",
+      "min_green_s": 7.0,
+      "max_green_s": 40.0,
+      "yellow_s": 3.5,
+      "red_clearance_s": 2.1,
+      "split_s": 35.0,
+      "walk_s": 7.0,
+      "ped_change_s": 21.0,
+      "approach": {
+        "speed_mph": 30.0,
+        "clearance_distance_ft": 70.0,
+        "crossing_distance_ft": 72.0
+      }
+    },
+    {
+      "number": 5,
+      "name": "Main St NB left",
+      "protected_left": true,
+      "min_green_s": 5.0,
+      "max_green_s": 20.0,
+      "yellow_s": 3.0,
+      "red_clearance_s": 2.2,
+      "split_s": 20.0,
+      "approach": {"speed_mph": 25.0, "clearance_distance_ft": 60.0}
+    },
+    {
+      "number": 6,
+      "name": "Main St SB through",
+      "min_green_s": 15.0,
+      "max_green_s": 60.0,
+      "yellow_s": 4.5,
+      "red_clearance_s": 1.5,
+      "split_s": 50.0,
+      "walk_s": 7.0,
+      "ped_change_s": 14.0,
+      "approach": {
+        "speed_mph": 45.0,
+        "clearance_distance_ft": 60.0,
+        "crossing_distance_ft": 48.0
+      }
+    },
+    {
+      "number": 7,
+      "name": "Oak Ave EB left",
+      "protected_left": true,
+      "min_green_s": 5.0,
+      "max_green_s": 20.0,
+      "yellow_s": 3.0,
+      "red_clearance_s": 2.2,
+      "split_s": 15.0,
+      "approach": {"speed_mph": 25.0, "clearance_distance_ft": 60.0}
+    },
+    {
+      "number": 8,
+      "name": "Oak Ave WB through",
+      "min_green_s": 7.0,
+      "max_green_s": 40.0,
+      "yellow_s": 3.5,
+      "red_clearance_s": 2.1,
+      "split_s": 35.0,
+      "walk_s": 7.0,
+      "ped_change_s": 21.0,
+      "approach": {
+        "speed_mph": 30.0,
+        "clearance_distance_ft": 70.0,
+        "crossing_distance_ft": 72.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "name": "5th St & Elm -- PM Peak (contains deliberate faults)",
+  "cycle_length_s": 100.0,
+  "offset_s": 130.0,
+  "coordinated_phases": [2, 6],
+  "metadata": {
+    "notes": "Demonstration plan. Every fault here is intentional."
+  },
+  "phases": [
+    {
+      "number": 1,
+      "name": "5th St SB left",
+      "protected_left": true,
+      "min_green_s": 2.0,
+      "yellow_s": 3.0,
+      "red_clearance_s": 2.2,
+      "split_s": 10.0,
+      "approach": {"speed_mph": 25.0, "clearance_distance_ft": 60.0}
+    },
+    {
+      "number": 2,
+      "name": "5th St NB through",
+      "min_green_s": 15.0,
+      "yellow_s": 2.5,
+      "red_clearance_s": 1.5,
+      "split_s": 50.0,
+      "approach": {"speed_mph": 45.0, "clearance_distance_ft": 60.0}
+    },
+    {
+      "number": 3,
+      "name": "Elm WB left",
+      "protected_left": true,
+      "min_green_s": 8.0,
+      "yellow_s": 3.0,
+      "red_clearance_s": 2.2,
+      "split_s": 10.0,
+      "approach": {"speed_mph": 25.0, "clearance_distance_ft": 60.0}
+    },
+    {
+      "number": 4,
+      "name": "Elm EB through",
+      "min_green_s": 7.0,
+      "yellow_s": 3.5,
+      "red_clearance_s": 7.0,
+      "split_s": 30.0,
+      "approach": {"speed_mph": 30.0, "clearance_distance_ft": 70.0}
+    },
+    {
+      "number": 5,
+      "name": "5th St NB left",
+      "protected_left": true,
+      "min_green_s": 5.0,
+      "yellow_s": 3.0,
+      "red_clearance_s": 2.2,
+      "split_s": 15.0,
+      "approach": {"speed_mph": 25.0, "clearance_distance_ft": 60.0}
+    },
+    {
+      "number": 6,
+      "name": "5th St SB through",
+      "min_green_s": 15.0,
+      "yellow_s": 4.5,
+      "red_clearance_s": 1.5,
+      "split_s": 50.0,
+      "walk_s": 3.0,
+      "ped_change_s": 8.0,
+      "approach": {
+        "speed_mph": 45.0,
+        "clearance_distance_ft": 60.0,
+        "crossing_distance_ft": 48.0
+      }
+    },
+    {
+      "number": 7,
+      "name": "Elm EB left",
+      "protected_left": true,
+      "min_green_s": 5.0,
+      "yellow_s": 3.0,
+      "red_clearance_s": 2.2,
+      "split_s": 10.0,
+      "approach": {"speed_mph": 25.0, "clearance_distance_ft": 60.0}
+    },
+    {
+      "number": 8,
+      "name": "Elm WB through",
+      "min_green_s": 7.0,
+      "yellow_s": 3.5,
+      "red_clearance_s": 2.1,
+      "split_s": 30.0,
+      "approach": {"speed_mph": 30.0, "clearance_distance_ft": 70.0}
+    }
+  ]
+}
