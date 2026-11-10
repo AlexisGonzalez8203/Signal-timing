@@ -32,6 +32,9 @@ class Approach:
     clearance_distance_ft: float | None = None
     #: Curb-to-curb pedestrian crossing distance, feet.
     crossing_distance_ft: float | None = None
+    #: True when the source data omitted ``grade`` and 0% was assumed. Excluded
+    #: from equality and serialization; used only by the completeness check.
+    grade_assumed: bool = field(default=False, compare=False)
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -48,6 +51,7 @@ class Approach:
             grade=data.get("grade", 0.0),
             clearance_distance_ft=data.get("clearance_distance_ft"),
             crossing_distance_ft=data.get("crossing_distance_ft"),
+            grade_assumed="grade" not in data,
         )
 
 

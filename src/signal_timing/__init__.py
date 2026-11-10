@@ -9,7 +9,7 @@ from .intervals import (
 from .model import Approach, Phase, PlanStructureError, TimingPlan
 from .policy import DEFAULT_POLICY, Policy
 from .report import ValidationReport
-from .rules import Finding, RuleSet, Severity, default_ruleset
+from .rules import Finding, RuleSet, Severity, default_ruleset, fdot_ruleset
 from .validator import load_plan, validate, validate_file
 
 __version__ = "0.1.0"
@@ -26,6 +26,7 @@ __all__ = [
     "TimingPlan",
     "ValidationReport",
     "default_ruleset",
+    "fdot_ruleset",
     "load_plan",
     "pedestrian_change_interval",
     "red_clearance_interval",

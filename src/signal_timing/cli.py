@@ -30,6 +30,13 @@ def build_parser() -> argparse.ArgumentParser:
         help="One or more timing plan JSON files.",
     )
     parser.add_argument(
+        "--standard",
+        choices=("generic", "fdot"),
+        default="generic",
+        help="Rule set: generic MUTCD/ITE (default), or fdot for the FDOT TEM "
+        "(State Highway System) with input-completeness reporting.",
+    )
+    parser.add_argument(
         "--format",
         choices=("text", "json"),
         default="text",
@@ -84,7 +91,7 @@ def main(argv: list[str] | None = None) -> int:
     reports: list[tuple[Path, ValidationReport]] = []
     for path in args.plans:
         try:
-            reports.append((path, validate_file(path, policy=policy)))
+            reports.append((path, validate_file(path, policy=policy, standard=args.standard)))
         except FileNotFoundError:
             print(f"error: no such plan file: {path}", file=sys.stderr)
             return EXIT_BAD_INPUT

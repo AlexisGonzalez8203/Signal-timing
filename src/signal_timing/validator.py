@@ -8,7 +8,7 @@ from pathlib import Path
 from .model import TimingPlan
 from .policy import DEFAULT_POLICY, Policy
 from .report import ValidationReport
-from .rules import default_ruleset
+from .rules import RULESETS
 from .rules.base import RuleSet
 
 
@@ -16,6 +16,7 @@ def validate(
     plan: TimingPlan,
     ruleset: RuleSet | None = None,
     policy: Policy = DEFAULT_POLICY,
+    standard: str = "generic",
 ) -> ValidationReport:
     """Validate ``plan`` and return a report.
 
@@ -25,8 +26,15 @@ def validate(
             ``policy``. When a ruleset is supplied, ``policy`` is ignored --
             the rules carry their own.
         policy: Thresholds for the default rule set.
+        standard: Built-in rule set to use when ``ruleset`` is not supplied:
+            ``"generic"`` (MUTCD/ITE) or ``"fdot"`` (FDOT TEM, State Highway
+            System, with input-completeness reporting).
     """
-    active = ruleset if ruleset is not None else default_ruleset(policy)
+    if ruleset is None and standard not in RULESETS:
+        raise ValueError(
+            f"unknown standard {standard!r}; choose from {sorted(RULESETS)}"
+        )
+    active = ruleset if ruleset is not None else RULESETS[standard](policy)
     return ValidationReport(
         plan_name=plan.name,
         findings=active.check(plan),
@@ -44,6 +52,7 @@ def validate_file(
     path: str | Path,
     ruleset: RuleSet | None = None,
     policy: Policy = DEFAULT_POLICY,
+    standard: str = "generic",
 ) -> ValidationReport:
     """Load a plan from ``path`` and validate it."""
-    return validate(load_plan(path), ruleset, policy)
+    return validate(load_plan(path), ruleset, policy, standard)

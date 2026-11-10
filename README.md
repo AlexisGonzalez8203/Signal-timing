@@ -62,11 +62,36 @@ Options:
 
 | Flag | Effect |
 | --- | --- |
+| `--standard fdot` | FDOT TEM rule set for the State Highway System (see below) |
 | `--format json` | Machine-readable output |
 | `--quiet` | Hide INFO findings |
 | `--strict` | Treat warnings as failures |
 | `--walking-speed FPS` | Override the pedestrian design walking speed |
 | `--max-cycle SECONDS` | Override the practical maximum cycle length |
+
+### FDOT TEM mode
+
+```bash
+signal-timing --standard fdot plan.json
+```
+
+The default rule set is generic MUTCD/ITE. `--standard fdot` swaps in the FDOT
+Traffic Engineering Manual rules, which are stricter on the State Highway System:
+
+| ID | Checks |
+| --- | --- |
+| `FDOT-Y-TEM` | Yellow meets Formula 3.6-1 (t = 1.4 s, a = 10 ft/s^2) and the Table 3.6-1 minimum, within 3-6 s |
+| `FDOT-R-TEM` | Red clearance is present, within 2-6 s, and covers Formula 3.6-2 (NCHRP 731 1.0 s reduction reported as a warning) |
+| `MUTCD-PED-REACH` | WALK + change covers detector-to-far-side at 3.0 ft/s |
+| `MUTCD-PED-COUNTDOWN` | Notes phases whose change interval exceeds 7 s and so need a countdown |
+| `COMPLETE-INPUTS` | Reports every check that could not run for lack of input |
+
+`COMPLETE-INPUTS` exists so that a plan cannot pass merely because nothing was
+checked: a phase with no `approach`, no `clearance_distance_ft`, no
+`crossing_distance_ft`, or an omitted `grade` (0% is assumed) is flagged.
+Use the **posted** speed for `speed_mph`; the TEM yellow is based on it. The
+ITE adequacy and MUTCD yellow/red range rules are replaced in this mode so one
+problem is not reported twice.
 
 ### Library
 
